@@ -1,0 +1,15 @@
+@import "tailwindcss";
+:root {
+  /* Azul de la bandera argentina */
+  --arg-primary: #74ACDF;
+  /* Amarillo sol de la bandera */
+  --arg-accent: #FFC300;
+  /* Gris claro neutro para fondos o textos secundarios */
+  --arg-neutral: #F5F5F5;
+  
+}
+
+
+html, body {
+  overflow-x: hidden;
+}

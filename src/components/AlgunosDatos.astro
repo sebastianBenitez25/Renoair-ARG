@@ -1,0 +1,110 @@
+---
+// src/components/AlgunosDatos.astro
+---
+<section
+  id="datos"
+  class="relative pt-16 pb-32 bg-[var(--arg-primary)] overflow-hidden"
+>
+  <!-- Top wave -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
+    <svg class="block w-full h-20" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path
+        fill="var(--arg-accent)"
+        d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,160C1248,128,1344,96,1392,80L1440,64L1440,0L0,0Z"
+      />
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-screen-lg mx-auto px-4 flex flex-col md:flex-row items-start md:items-center gap-8">
+    <!-- Texto y botón -->
+    <div class="w-full md:w-5/12 text-white">
+      <span class="text-sm">Conozca</span>
+      <h2 class="mt-1 text-3xl md:text-4xl font-bold uppercase text-[var(--arg-accent)]">ALGUNOS DATOS</h2>
+      <div class="mt-1 h-1 w-16 bg-[var(--arg-accent)]"></div>
+      <p class="mt-4 text-sm leading-relaxed">Torres propias instaladas y en operación</p>
+      <a
+        href="/Ingenieria"
+        class="inline-flex items-center mt-6 px-6 py-3 text-white font-medium rounded shadow transition
+               bg-gradient-to-r from-[var(--arg-accent)] to-[var(--arg-primary)]"
+      >
+        Saber más<span class="ml-2">➔</span>
+      </a>
+    </div>
+
+    <!-- Estadísticas animadas -->
+    <div class="w-full md:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Torres O&M -->
+      <div class="border-2 border-[var(--arg-accent)] rounded-lg p-6 text-white text-center">
+        <span class="block text-4xl font-bold counter" data-target="163">0</span>
+        <p class="mt-2 text-sm">Torres anemométricas en contrato de O&M</p>
+      </div>
+      <!-- Colaboradores -->
+      <div class="border-2 border-[var(--arg-accent)] rounded-lg p-6 text-white text-center">
+        <span class="block text-4xl font-bold counter" data-target="97">0</span>
+        <p class="mt-2 text-sm">Colaboradores divididos en cinco estados</p>
+      </div>
+      <!-- Porcentaje AMA -->
+      <div class="border-2 border-[var(--arg-accent)] rounded-lg p-6 text-white text-center">
+        <div class="inline-flex items-baseline justify-center">
+          <span class="text-4xl font-bold counter" data-target="25">0</span>
+          <span class="text-4xl font-bold">%</span>
+        </div>
+        <p class="mt-2 text-sm">Torres estándar AMA en Brasil</p>
+      </div>
+      <!-- Parques atendidos -->
+      <div class="border-2 border-[var(--arg-accent)] rounded-lg p-6 text-white text-center">
+        <span class="block text-4xl font-bold counter" data-target="133">0</span>
+        <p class="mt-2 text-sm">Parques eólicos atendidos</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom wave -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+    <svg
+      class="block w-full h-20"
+      viewBox="0 0 1440 320"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill="var(--arg-accent)"
+        d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,160C1248,128,1344,96,1392,80L1440,64L1440,320L0,320Z"
+      />
+    </svg>
+  </div>
+
+  <script type="module" is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const section = document.getElementById('datos');
+      const counters = section.querySelectorAll('.counter');
+      const duration = 2000;
+      let animated = false;
+
+      const runCounters = () => {
+        const start = performance.now();
+        const tick = now => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          counters.forEach(c => {
+            const target = +c.getAttribute('data-target');
+            c.innerText = Math.floor(target * progress);
+          });
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !animated) {
+            runCounters();
+            animated = true;
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      io.observe(section);
+    });
+  </script>
+</section>

@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+---
+<section
+  id="abrangencia"
+  class="relative pt-20 pb-32 bg-[var(--arg-primary)] overflow-hidden"
+>
+  <!-- Top wave -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
+    <svg class="block w-full h-20" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path
+        fill="var(--arg-accent)"
+        d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,160C1248,128,1344,96,1392,80L1440,64L1440,0L0,0Z"
+      />
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-screen-lg mx-auto px-4 flex flex-col lg:flex-row gap-8">
+    <!-- Columna izquierda -->
+    <div class="flex-1 flex flex-col gap-6">
+      <span class="text-sm text-[var(--arg-accent)]">Abrangência</span>
+      <h3 class="text-3xl md:text-4xl font-bold text-white leading-snug">
+        TÉCNICA NACIONAL E INTERNACIONAL
+      </h3>
+      <div class="h-1 w-12 bg-[var(--arg-accent)]"></div>
+      <p class="text-sm text-white leading-relaxed">
+        Nuestra área técnica está preparada para realizar mantenimientos con propiedad
+        y expertise en varias regiones de Brasil y América Latina.
+      </p>
+
+      <!-- Mapa reducido -->
+      <Image
+        src="/images/mapa-abrangencia-renoair.png.webp"
+        alt="Mapa de presencia"
+        class="w-64 md:w-80 h-auto rounded-lg"
+        width={320}
+        height={300}
+        loading="lazy"
+      />
+
+      <!-- Botón gradiente -->
+      <a
+        href="#"
+        class="inline-flex items-center mt-4 px-6 py-2 font-medium text-white rounded shadow transition
+               bg-gradient-to-r from-[var(--arg-accent)] to-[var(--arg-primary)]"
+      >
+        Saber más <span class="ml-2">➔</span>
+      </a>
+    </div>
+
+    <!-- Columna derecha: lista de ubicaciones -->
+    <div class="flex-1 lg:mt-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 text-white">
+        <div class="flex items-center gap-4 col-span-full">
+          <img src="/images/casa-matriz.png.webp" alt="Sede" class="w-12 h-12 flex-shrink-0" />
+          <span>Sede administrativa propia en Curitiba – PR</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="Guanambi" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial en Guanambi – BA</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="João Câmara" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial en João Câmara – RN</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="Pelotas" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial en Pelotas – RS</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="Petrolina" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial en Petrolina – PE</span>
+        </div>
+        <div class="flex items-center gap-4 col-span-full">
+          <img src="/images/industria.png.webp" alt="Industria" class="w-12 h-12 flex-shrink-0" />
+          <span>Industria propia en São José dos Pinhais – PR</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="Argentina" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial Argentina</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="Chile" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial Chile</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="Colombia" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial Colombia</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <img src="/images/filiar.png.webp" alt="Perú" class="w-12 h-12 flex-shrink-0" />
+          <span>Filial Perú</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom wave -->
+
+</section>

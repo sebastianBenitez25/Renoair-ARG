@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+---
+<section
+  id="about-us"
+  class="relative overflow-hidden bg-[var(--arg-primary)] pt-20 pb-32"
+>
+  <!-- Top wave -->
+ 
+
+  <div class="relative z-10 max-w-screen-lg mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Texto slide-in -->
+    <div
+      data-animate
+      class="opacity-0 transform -translate-x-6 transition-all duration-700 ease-out space-y-4 text-white"
+    >
+      <span class="text-sm font-semibold uppercase text-[var(--arg-accent)]">
+        Sobre Nosotros
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold uppercase leading-tight">
+        Cuando el viento sopla!
+      </h2>
+      <div class="h-1 w-16 bg-[var(--arg-accent)] rounded"></div>
+      <p class="text-base leading-relaxed text-white/90">
+        Somos apasionados por el viento, transformamos datos en energía.  
+        Hace casi una década estamos realizando esta transformación.
+      </p>
+      <p class="text-base leading-relaxed text-white/90">
+        Empresa 100% brasileña con socios nacionales e internacionales.  
+        Especialistas en mediciones anemométricas, consultoría y asesoría técnica desde la prospección hasta la implementación de parques eólicos.
+      </p>
+      <p class="text-base leading-relaxed text-white/90">
+        Fabricamos y comercializamos estructuras metálicas y equipos para energías renovables, pioneros en estudios eólicos especializados.
+      </p>
+      <a
+        href="#contacto"
+        class="inline-block mt-6 px-6 py-3 bg-[var(--arg-accent)] text-white font-semibold rounded-full shadow hover:bg-[var(--arg-primary)] transition-colors duration-300"
+      >
+        Contáctanos ➔
+      </a>
+    </div>
+
+   
+  </div>
+
+
+
+  <script type="module" is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = document.querySelectorAll('#about-us [data-animate]');
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-x-6', '-translate-x-6');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      els.forEach(el => io.observe(el));
+    });
+  </script>
+</section>

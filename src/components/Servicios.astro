@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+---
+<section id="servicios" class="relative pt-16 pb-32 bg-[var(--arg-primary)] overflow-hidden">
+  <!-- Top wave (fill con --arg-accent para conectar con la ola previa) -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
+    <svg class="block w-full h-20" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path
+        fill="var(--arg-accent)"
+        d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,160C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+      />
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-screen-lg mx-auto px-4 grid md:grid-cols-2 gap-16">
+    <!-- Texto slide-in desde la izquierda -->
+    <div
+      data-animate
+      class="opacity-0 transform -translate-x-4 transition-all duration-700 ease-out space-y-4 text-white"
+    >
+      <span class="text-sm font-semibold uppercase text-[var(--arg-accent)]">Conozca</span>
+      <h2 class="text-3xl md:text-4xl font-bold uppercase">Nuestros Servicios</h2>
+      <div class="h-1 w-20 bg-[var(--arg-accent)] rounded"></div>
+      <p class="text-md leading-relaxed">
+        Nuestro equipo ofrece soluciones personalizadas para cada etapa de la prospección de parques eólicos.
+      </p>
+      <p class="text-md leading-relaxed">
+        Desde la evaluación inicial del potencial eólico hasta la construcción, montaje y mantenimiento de las estructuras anemométricas.
+      </p>
+      <p class="text-md leading-relaxed">
+        Nuestra estrategia integrada garantiza resultados eficientes y de alta calidad.
+      </p>
+    </div>
+
+    <!-- Tarjetas slide-in desde la derecha -->
+    <div
+      data-animate
+      class="opacity-0 transform translate-x-4 transition-all duration-700 ease-out grid grid-cols-1 sm:grid-cols-2 gap-8"
+    >
+      <!-- Ingeniería -->
+      <div class="relative group">
+        <div class="rounded-[2rem] border-4 border-[var(--arg-accent)] overflow-hidden">
+          <Image
+            src="/images/ingenieria.webp"
+            alt="Ingeniería"
+            class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105"
+            width={600}
+            height={350}
+            loading="lazy"
+          />
+        </div>
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center">
+          <h3 class="text-xl font-bold text-white">Ingeniería</h3>
+          <a
+            href="/Ingenieria"
+            class="mt-3 inline-block px-6 py-3 bg-[var(--arg-accent)] text-white font-semibold rounded-full transition-colors hover:bg-[var(--arg-primary)]"
+          >
+            Saber más
+          </a>
+        </div>
+      </div>
+
+      <!-- Industria -->
+      <div class="relative group">
+        <div class="rounded-[2rem] border-4 border-[var(--arg-accent)] overflow-hidden">
+          <Image
+            src="/images/industria.webp"
+            alt="Industria"
+            class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105"
+            width={600}
+            height={350}
+            loading="lazy"
+          />
+        </div>
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center">
+          <h3 class="text-xl font-bold text-white">Industria</h3>
+          <a
+            href="/Industria"
+            class="mt-3 inline-block px-6 py-3 bg-[var(--arg-accent)] text-white font-semibold rounded-full transition-colors hover:bg-[var(--arg-primary)]"
+          >
+            Saber más
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+ <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+    <svg
+      class="block w-full h-20"
+      viewBox="0 0 1440 320"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill="var(--arg-accent)"
+        d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,160C1248,128,1344,96,1392,80L1440,64L1440,320L0,320Z"
+      />
+    </svg>
+  </div>
+
+  <script type="module" is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const section = document.getElementById('servicios');
+      const animated = section.querySelectorAll('[data-animate]');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-x-4', '-translate-x-4');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      animated.forEach(el => observer.observe(el));
+    });
+  </script>
+</section>

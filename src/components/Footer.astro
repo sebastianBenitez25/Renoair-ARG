@@ -1,0 +1,85 @@
+---
+// src/components/Footer.astro
+import { Image } from 'astro:assets';
+---
+<footer class="bg-[var(--arg-primary)] text-white">
+  <!-- Contactos arriba -->
+  <div class="max-w-screen-lg mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+    <!-- Teléfono -->
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
+        <path d="M6.62 10.79a15.093 15.093 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.9.76a1 1 0 011 1V20a1 1 0 01-1 1C10.29 21 3 13.71 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.37.26 2.69.76 3.9a1 1 0 01-.21 1.11l-2.43 2.43z"/>
+      </svg>
+      <span>+55 (41) 3268 2030</span>
+    </div>
+    <!-- Correo -->
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
+        <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm2 0v16h16V4H4zm1 1l7 5 7-5H5z"/>
+      </svg>
+      <span>contato@renoair.com.br</span>
+    </div>
+    <!-- Dirección -->
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+      </svg>
+      <span>Calle Carolina Castelli, 715 – Nuevo Mundo, Curitiba, PR</span>
+    </div>
+  </div>
+
+  <!-- Contenido del footer -->
+  <div class="max-w-screen-lg mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Logo + Descripción -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left gap-4">
+      <Image
+        src="/images/logo-dark-renoair.png.webp"
+        alt="RenoAir"
+        width={200}
+        height={50}
+        loading="lazy"
+        
+      />
+      <p class="text-sm leading-relaxed">
+        Empresa 100% brasileña con 10 años en el mercado de la energía eólica, con socios nacionales e internacionales. Presente en cinco estados brasileños y cuatro países.
+      </p>
+    </div>
+
+    <!-- Empresa -->
+    <div>
+      <h4 class="text-lg font-semibold mb-2">Empresa</h4>
+      <ul class="space-y-1 text-sm">
+        <li><a href="/quienes-somos" class="hover:underline">Quiénes somos</a></li>
+        <li><a href="/trabaje-con-nosotros" class="hover:underline">Trabaje con nosotros</a></li>
+        <li><a href="/socios" class="hover:underline">Socios</a></li>
+      </ul>
+    </div>
+
+    <!-- Servicios + LinkedIn -->
+    <div class="relative">
+      <a
+        href="https://www.linkedin.com/company/renoair"
+        target="_blank"
+        rel="noopener"
+        class="absolute top-0 right-0 inline-flex items-center justify-center w-8 h-8 border border-white rounded-full transition hover:bg-white hover:text-[var(--e-global-color-ac571e4)]"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" class="w-4 h-4">
+          <path d="M100.28 448H7.4V148.9h92.88zm-46.44-310.2C24.49 137.8 0 113.82 0 84.5S24.49 31.2 53.84 31.2 107.2 55.18 107.2 84.5 83.19 137.8 53.84 137.8zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.32-79.3-48.4 0-55.82 37.8-55.82 76.8V448h-92.68V148.9h89.04v40.8h1.3c12.4-23.5 42.7-48.3 87.92-48.3 94.06 0 111.44 62 111.44 142.3V448z"/>
+        </svg>
+      </a>
+      <h4 class="text-lg font-semibold mb-2">Servicios</h4>
+      <ul class="space-y-1 text-sm">
+        <li><a href="/ingenieria" class="hover:underline">Ingeniería</a></li>
+        <li><a href="/industria" class="hover:underline">Industria</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Crédito -->
+  <div class="max-w-screen mx-auto px-4 py-4 text-center text-xs bg-[var(--e-global-color-ac571e4)]">
+    Sitio creado por 
+    <a href="https://mediaencoderagency.com" target="_blank" rel="noopener" class="underline">
+      MediaEncoderAgency
+    </a>
+  </div>
+</footer>

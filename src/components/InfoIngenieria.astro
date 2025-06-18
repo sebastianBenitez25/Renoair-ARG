@@ -1,0 +1,82 @@
+---
+
+import { Image } from 'astro:assets';
+
+const servicios = [
+  {
+    title: 'Instalación de torres anemométricas',
+    desc: 'Ofrecemos servicios completos de instalación de torres anemométricas, garantizando una solución robusta y segura para la medición de viento. Nuestro equipo especializado utiliza las mejores prácticas del mercado para asegurar la precisión de los datos y la integridad de los equipos, atendiendo las necesidades específicas de cada proyecto.',
+    img: '/images/ingenieria/instalacion-torres.jpg'
+  },
+  {
+    title: 'Monitorización y recopilación de datos',
+    desc: 'Proporcionamos un servicio de monitorización y recogida de datos de alta calidad, esencial para la evaluación del potencial eólico. Utilizamos sistemas tecnológicamente avanzados para garantizar la fiabilidad y la continuidad de la información, permitiendo análisis precisos y fundamentados.',
+    img: '/images/ingenieria/monitorizacion.jpg'
+  },
+  {
+    title: 'Análisis de datos de viento',
+    desc: 'Realizamos análisis detallados de los datos de viento, transformando información bruta en informes valiosos para la toma de decisiones. Nuestros especialistas emplean herramientas y métodos consagrados en el sector para apoyar el planeamiento y la viabilidad de proyectos de energía renovable.',
+    img: '/images/ingenieria/analisis-datos.jpg'
+  },
+  {
+    title: 'Consultoría para energía eólica',
+    desc: 'Ofrecemos servicios de consultoría a medida para proyectos de energía eólica, ayudando a nuestros clientes a identificar oportunidades, superar desafíos y maximizar el retorno de la inversión. Nuestra experiencia abarca desde estudios iniciales hasta el apoyo en operaciones y mantenimiento.',
+    img: '/images/ingenieria/consultoria.jpg'
+  },
+  {
+    title: 'Mantenimiento y calibración de anemómetros',
+    desc: 'Garantizamos el rendimiento y la precisión de sus anemómetros con servicios especializados de mantenimiento y calibración. Trabajamos con estándares MEASNET para asegurar que los equipos cumplan con las exigencias técnicas y regulatorias, contribuyendo a la fiabilidad de las mediciones.',
+    img: '/images/ingenieria/calibracion.jpg'
+  },
+  {
+    title: 'Mantenimiento de torres anemométricas',
+    desc: 'Ofrecemos mantenimiento preventivo y correctivo de torres anemométricas, asegurando la integridad estructural y la precisión de los datos. Realizamos inspecciones detalladas, ajustes de cables, reaprietes y sustitución de componentes, siguiendo rigurosos protocolos técnicos.',
+    img: '/images/ingenieria/mantenimiento-torres.jpg'
+  },
+  {
+    title: 'Mantenimiento de torres solarimétricas',
+    desc: 'Realizamos mantenimiento completo de torres solarimétricas, garantizando el correcto funcionamiento de sensores y la fiabilidad de los datos de radiación solar. Inspeccionamos estructuras, limpiamos y verificamos sensores (piranómetros, pireliómetros, termómetros...), y configuramos comunicaciones SCADA.',
+    img: '/images/ingenieria/mantenimiento-solarimetricas.jpg'
+  }
+];
+---
+
+<!-- src/pages/ingenieria.astro -->
+
+<!-- Hero -->
+<!-- Hero banner -->
+<section class="relative h-64 bg-[var(--arg-accent)] overflow-hidden flex items-center justify-center">
+  <!-- Opcional imagen de fondo -->
+  <!-- <Image src="/images/partners-hero.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Socios" /> -->
+  <div class="absolute inset-0 bg-[var(--arg-primary)]/80"></div>
+  <div class="relative z-10 text-center text-white px-4">
+    <span class="text-sm uppercase tracking-wider">SERVICIOS</span>
+    <h1 class="mt-2 text-4xl md:text-5xl font-bold">Ingeniería</h1>
+  </div>
+  <!-- Wave bottom -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+    <svg class="block w-full h-16" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="var(--arg-accent)" d="M0,224L48,197.3C96,171,192,117,288,90.7C384,64,480,64,576,74.7C672,85,768,107,864,117.3C960,128,1056,128,1152,128C1248,128,1344,128,1392,128L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"/>
+    </svg>
+  </div>
+</section>
+
+<section id="ingenieria-servicios" class="relative bg-[var(--arg-primary)] text-white py-16 overflow-hidden">
+  <!-- Wave top -->
+  
+
+  <div class="relative max-w-screen-lg mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8">
+      {servicios.map(({ title, desc }, i) => (
+        <div class="border border-[var(--arg-accent)] rounded-lg p-6 text-white bg-[var(--arg-primary)]" >
+          <h3 class="font-semibold text-xl mb-2">{title}</h3>
+          <p class="text-sm leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  
+</section>
+
+

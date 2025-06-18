@@ -1,0 +1,106 @@
+---
+// src/components/Navbar.astro
+---
+<nav
+  id="main-nav"
+  class="w-full opacity-0 transition-opacity duration-700 ease-out font-sans font-medium"
+>
+ 
+
+  <!-- Main navbar -->
+  <div class="text-white px-4 py-3 flex items-center justify-between bg-[var(--arg-primary)]">
+    <!-- Logo -->
+    <div class="flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+      <img src="/images/logo-dark-renoair.png.webp" alt="RenoAir" class="h-8" />
+    </div>
+
+    <!-- Botón hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden text-2xl text-white hover:text-[var(--arg-accent)] transition-colors"
+    >
+      ☰
+    </button>
+
+    <!-- Menú desktop -->
+    <ul class="hidden md:flex gap-8 text-sm items-center font-poppins">
+      <li><a href="/" class="transition-colors hover:text-[var(--arg-accent)]">Inicio</a></li>
+      <li class="relative group">
+        <a href="#" class="flex items-center gap-1 transition-colors hover:text-[var(--arg-accent)]">
+          Empresa <span class="text-xs">▾</span>
+        </a>
+        <ul class="absolute left-0 top-full w-44 bg-white text-black text-sm rounded-sm shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <li><a href="/nosotros" class="block px-4 py-2 hover:bg-[var(--arg-accent)] hover:text-white">Sobre nosotros</a></li>
+          <li><a href="/TrabajaNosotros" class="block px-4 py-2 hover:bg-[var(--arg-accent)] hover:text-white">Trabaja con nosotros</a></li>
+          <li><a href="/Socios" class="block px-4 py-2 hover:bg-[var(--arg-accent)] hover:text-white">Socios</a></li>
+        </ul>
+      </li>
+      <li class="relative group">
+        <a href="#" class="flex items-center gap-1 transition-colors hover:text-[var(--arg-accent)]">
+          Servicios <span class="text-xs">▾</span>
+        </a>
+        <ul class="absolute left-0 top-full w-44 bg-white text-black text-sm rounded-sm shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <li><a href="/Ingenieria" class="block px-4 py-2 hover:bg-[var(--arg-accent)] hover:text-white">Ingenieria</a></li>
+          <li><a href="/Industria" class="block px-4 py-2 hover:bg-[var(--arg-accent)] hover:text-white">Industria</a></li>
+        </ul>
+      </li>
+      <li><a href="#contacto" class="transition-colors hover:text-[var(--arg-accent)]">Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- Menú mobile con animación -->
+  <div
+  id="mobile-menu"
+  class="md:hidden bg-[var(--arg-primary)] text-white px-4 font-poppins overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0"
+>
+  <div class="space-y-4 pt-4 pb-2">
+    <a href="/" class="block text-left transition-colors hover:text-[var(--arg-accent)]">Inicio</a>
+
+    <details class="group bg-[var(--arg-primary)] rounded-md">
+      <summary class="cursor-pointer w-full text-left px-3 py-2 transition-colors hover:bg-[var(--arg-accent)]">
+        Empresa
+      </summary>
+      <ul class="mt-1 space-y-2 text-sm bg-[var(--arg-primary)] text-white rounded-b-md">
+        <li><a href="/nosotros" class="block px-4 py-2 text-left hover:bg-[var(--arg-accent)]">Sobre nosotros</a></li>
+        <li><a href="/TrabajaNosotros" class="block px-4 py-2 text-left hover:bg-[var(--arg-accent)]">Trabaja con nosotros</a></li>
+        <li><a href="/Socios" class="block px-4 py-2 text-left hover:bg-[var(--arg-accent)]">Socios</a></li>
+      </ul>
+    </details>
+
+    <details class="group bg-[var(--arg-primary)] rounded-md">
+      <summary class="cursor-pointer w-full text-left px-3 py-2 transition-colors hover:bg-[var(--arg-accent)]">
+        Servicios
+      </summary>
+      <ul class="mt-1 space-y-2 text-sm bg-[var(--arg-primary)] text-white rounded-b-md">
+        <li><a href="/Ingenieria" class="block px-4 py-2 text-left hover:bg-[var(--arg-accent)]">Ingenieria</a></li>
+        <li><a href="/Industria" class="block px-4 py-2 text-left hover:bg-[var(--arg-accent)]">Industria</a></li>
+      </ul>
+    </details>
+
+    <a href="#contacto" class="block text-left transition-colors hover:text-[var(--arg-accent)]">Contacto</a>
+  </div>
+</div>
+
+
+  <!-- Script toggle & slide animation -->
+  <script type="module" is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.getElementById('main-nav');
+      nav.classList.add('opacity-100');
+
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+
+      toggle.addEventListener('click', () => {
+        const closed = menu.classList.contains('max-h-0');
+        if (closed) {
+          menu.classList.replace('max-h-0','max-h-screen');
+          menu.classList.replace('opacity-0','opacity-100');
+        } else {
+          menu.classList.replace('max-h-screen','max-h-0');
+          menu.classList.replace('opacity-100','opacity-0');
+        }
+      });
+    });
+  </script>
+</nav>
